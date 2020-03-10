@@ -1,0 +1,44 @@
+{
+    "ReRoutes": [
+      {
+        "DownstreamPathTemplate": "/api/v1/pagamentos",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 5000
+          }
+        ],
+        "UpstreamPathTemplate": "/api/v1/pagamentos",
+        "UpstreamHttpMethod": [ "Get", "Post" ]
+      },
+      {
+        "DownstreamPathTemplate": "/api/v1/healthz",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 5001
+          }
+        ],
+        "UpstreamPathTemplate": "/api/v1/health",
+        "UpstreamHttpMethod": [ "Get" ]
+      },
+      {
+        "DownstreamPathTemplate": "/swagger/index.html",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 5001
+          }
+        ],
+        "UpstreamPathTemplate": "/api/v1/api-docs",
+        "UpstreamHttpMethod": [ "Get" ]
+      }
+    ],
+    "GlobalConfiguration": {
+        "DangerousAcceptAnyServerCertificateValidator": true,
+        "SkipSslValidation": true
+     }
+  }
