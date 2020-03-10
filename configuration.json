@@ -6,11 +6,18 @@
         "DownstreamHostAndPorts": [
           {
             "Host": "localhost",
-            "Port": 5000
+            "Port": 5001
           }
         ],
         "UpstreamPathTemplate": "/api/v1/pagamentos",
-        "UpstreamHttpMethod": [ "Get", "Post" ]
+        "UpstreamHttpMethod": [ "Get", "Post" ],
+        "RateLimitOptions": {
+            "ClientWhitelist": [],
+            "EnableRateLimiting": true,
+            "Period": "2s",
+            "PeriodTimespan": 2,
+            "Limit": 1
+        }
       },
       {
         "DownstreamPathTemplate": "/api/v1/healthz",
@@ -22,7 +29,14 @@
           }
         ],
         "UpstreamPathTemplate": "/api/v1/health",
-        "UpstreamHttpMethod": [ "Get" ]
+        "UpstreamHttpMethod": [ "Get" ],
+        "RateLimitOptions": {
+            "ClientWhitelist": [],
+            "EnableRateLimiting": true,
+            "Period": "2s",
+            "PeriodTimespan": 2,
+            "Limit": 1
+        }
       },
       {
         "DownstreamPathTemplate": "/swagger/index.html",
@@ -34,7 +48,14 @@
           }
         ],
         "UpstreamPathTemplate": "/api/v1/api-docs",
-        "UpstreamHttpMethod": [ "Get" ]
+        "UpstreamHttpMethod": [ "Get" ],
+        "RateLimitOptions": {
+            "ClientWhitelist": [],
+            "EnableRateLimiting": true,
+            "Period": "2s",
+            "PeriodTimespan": 2,
+            "Limit": 1
+        }
       }
     ],
     "GlobalConfiguration": {
