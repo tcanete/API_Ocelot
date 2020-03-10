@@ -36,7 +36,8 @@
             "Period": "2s",
             "PeriodTimespan": 2,
             "Limit": 1
-        }
+        },
+        "FileCacheOptions": { "TtlSeconds": 20, "Region": "somename" }
       },
       {
         "DownstreamPathTemplate": "/swagger/index.html",
