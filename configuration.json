@@ -1,8 +1,27 @@
 {
     "ReRoutes": [
       {
+        "DownstreamPathTemplate": "/api/v1/pagamentos/{everything}",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 5001
+          }
+        ],
+        "UpstreamPathTemplate": "/api/v1/pagamentos/{everything}",
+        "UpstreamHttpMethod": [ "Get" ],
+        "RateLimitOptions": {
+            "ClientWhitelist": [],
+            "EnableRateLimiting": true,
+            "Period": "2s",
+            "PeriodTimespan": 2,
+            "Limit": 1
+        }
+      },
+      {
         "DownstreamPathTemplate": "/api/v1/pagamentos",
-        "DownstreamScheme": "http",
+        "DownstreamScheme": "https",
         "DownstreamHostAndPorts": [
           {
             "Host": "localhost",
@@ -10,7 +29,7 @@
           }
         ],
         "UpstreamPathTemplate": "/api/v1/pagamentos",
-        "UpstreamHttpMethod": [ "Get", "Post" ],
+        "UpstreamHttpMethod": [ "Post" ],
         "RateLimitOptions": {
             "ClientWhitelist": [],
             "EnableRateLimiting": true,
